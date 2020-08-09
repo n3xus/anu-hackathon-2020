@@ -27,6 +27,7 @@ import { Nav, Collapse, Button } from "reactstrap";
 
 // core components
 import avatar from "assets/img/ryan.jpg";
+import doc from "assets/img/doc1.jpg";
 import logo from "logo-white.svg";
 
 var ps;
@@ -190,11 +191,11 @@ class Sidebar extends React.Component {
           </div>
 
           <div className="sidebar-wrapper" ref={this.sidebar}>
-            <div className="user">
+           <div className="user">
               <div className="photo">
                 <img src={avatar} alt="Avatar" />
               </div>
-              <div className="info">
+              <div cla ssName="info">
                 <a
                   href="#pablo"
                   data-toggle="collapse"
@@ -208,6 +209,7 @@ class Sidebar extends React.Component {
                     <b className="caret" />
                   </span>
                 </a>
+
                 <Collapse isOpen={this.state.openAvatar}>
                   <ul className="nav">
                     <li>
@@ -232,6 +234,22 @@ class Sidebar extends React.Component {
                 </Collapse>
               </div>
             </div>
+
+            <div className="user">
+              <div className="photo">
+                <img src={doc} alt="Avatar" />
+              </div>
+              <div className="info">
+                <a
+                  href="#pablo"
+                >
+                  <span>
+                    Doctors
+                  </span>
+                </a>
+              </div>
+            </div>
+
             <Nav>{this.createLinks(this.props.routes)}</Nav>
           </div>
         </div>
