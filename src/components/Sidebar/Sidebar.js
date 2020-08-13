@@ -235,20 +235,7 @@ class Sidebar extends React.Component {
               </div>
             </div>
 
-            <div className="user">
-              <div className="photo">
-                <img src={doc} alt="Avatar" />
-              </div>
-              <div className="info">
-                <a
-                  href="#pablo"
-                >
-                  <span>
-                    Doctors
-                  </span>
-                </a>
-              </div>
-            </div>
+            
 
             <Nav>{this.createLinks(this.props.routes)}</Nav>
           </div>

@@ -42,8 +42,16 @@ import PricingPage from "views/Pages/PricingPage.js";
 import LoginPage from "views/Pages/LoginPage.js";
 import RegisterPage from "views/Pages/RegisterPage.js";
 import LockScreenPage from "views/Pages/LockScreenPage.js";
+import DoctorsComponent from './components/doctors/DoctorsComponent.js';
 
 let routes = [
+  {
+    path: "/doctors",
+    name: "Doctors",
+    icon: "now-ui-icons design_app",
+    component: DoctorsComponent,
+    layout: "/admin",
+  },
   {
     path: "/dashboard",
     name: "Dashboard",

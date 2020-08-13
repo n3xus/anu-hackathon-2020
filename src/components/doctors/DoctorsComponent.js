@@ -15,7 +15,7 @@ import {
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
 
-class ExtendedTables extends React.Component {
+class DoctorsComponent extends React.Component {
   render() {
     return (
       <>
@@ -110,4 +110,4 @@ class ExtendedTables extends React.Component {
   }
 }
 
-export default ExtendedTables;
+export default DoctorsComponent;
