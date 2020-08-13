@@ -1,3 +1,6 @@
-import DoctorsComponent from "./DoctorsComponent";
+import DoctorsComponent from "./DoctorList";
 
-export * from './DoctorsComponent';
+import DoctorList from './DoctorList';
+import Doctor from './Doctor';
+
+export {DoctorList, Doctor}
