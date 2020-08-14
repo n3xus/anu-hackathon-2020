@@ -18,14 +18,14 @@ import PanelHeader from "components/PanelHeader/PanelHeader.js";
 import data from "api/doctors.json";
 
 const images = [
-  require(`assets/img/default-avatar.png`),
-  require(`assets/img/default-avatar.png`),
-  require(`assets/img/default-avatar.png`),
-  require(`assets/img/default-avatar.png`),
-  require(`assets/img/default-avatar.png`),
-  require(`assets/img/default-avatar.png`),
-  require(`assets/img/default-avatar.png`),
-  require(`assets/img/default-avatar.png`),
+  require(`assets/img/doctors/1.jpg`),
+  require(`assets/img/doctors/2.jpg`),
+  require(`assets/img/doctors/3.jpg`),
+  require(`assets/img/doctors/4.jpg`),
+  require(`assets/img/doctors/5.jpg`),
+  require(`assets/img/doctors/6.jpg`),
+  require(`assets/img/doctors/7.jpg`),
+  require(`assets/img/doctors/8.jpg`),
 ];
 
 const DoctorList = () => {
@@ -57,11 +57,12 @@ const DoctorList = () => {
                     {doctors.map((doctor, ix) => (
                       
                       <Doctor
-                        avatar={images[ix]}
+                        avatar={images[doctor.id]}
                         name={doctor.name}
                         hospital={doctor.hospital}
                         specialization={doctor.specialization}
                         available_date={doctor.available_date}
+                        id={doctor.id}
                         key={doctor.id}
                       />
                     ))}

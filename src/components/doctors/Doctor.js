@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 
 // reactstrap components
 import { Button } from "reactstrap";
+import {Link} from 'react-router-dom'
 
-const Doctor = ({ name, hospital, specialization, available_date, avatar }) => {
+const Doctor = ({ name, hospital, specialization, available_date, avatar, id }) => {
   // const [state, setState] = useState({});
 
   // useEffect(() => {
@@ -26,10 +27,9 @@ const Doctor = ({ name, hospital, specialization, available_date, avatar }) => {
       <td className="text-center">{available_date}</td>
       <td className="text-center" />
       <td td className="text-center">
-        {" "}
-        <Button color="info" className="btn-round">
+        <Link to={`/admin/doctor/${id}`} color="info" className="btn-round">
           Book Appointment
-        </Button>{" "}
+        </Link>
       </td>
     </tr>
   );

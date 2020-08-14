@@ -1,9 +1,9 @@
 [
     {
       "avatar": "assets/img/doctors/1.png",
-      "name": "A",
-      "hospital": "XYZ",
-      "specialization": "ENT",
+      "name": "Janet Andrew",
+      "hospital": "Midway",
+      "specialization": "General Practitioner",
       "available_date": "14/04/2020",
       "id": 1
     },
@@ -13,7 +13,7 @@
       "hospital": "XYZ",
       "specialization": "ENT",
       "available_date": "14/04/2020",
-      "id": 1
+      "id": 2
     },
     {
       "avatar": "assets/img/doctors/3.png",
@@ -21,7 +21,7 @@
       "hospital": "XYZ",
       "specialization": "ENT",
       "available_date": "14/04/2020",
-      "id": 1
+      "id": 3
     },
     {
       "avatar": "assets/img/doctors/4.png",
@@ -29,7 +29,7 @@
       "hospital": "XYZ",
       "specialization": "ENT",
       "available_date": "14/04/2020",
-      "id": 1
+      "id": 4
     },
     {
       "avatar": "assets/img/doctors/5.png",
@@ -37,6 +37,6 @@
       "hospital": "XYZ",
       "specialization": "ENT",
       "available_date": "14/04/2020",
-      "id": 1
+      "id": 5
     }
 ]
