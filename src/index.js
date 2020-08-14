@@ -26,25 +26,31 @@ import "assets/css/demo.css";
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
 
+import {UserProvider} from 'components/UserContext'
+
 const hist = createBrowserHistory();
 
+const user = { name: 'Tania', loggedIn: true }
+
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      <Route
-        path="/admin"
-        render={(props) => {
-          return <AdminLayout {...props} />;
-        }}
-      />
-      <Route
-        path="/auth"
-        render={(props) => {
-          return <AuthLayout {...props} />;
-        }}
-      />
-      <Redirect to="/admin/dashboard" />
-    </Switch>
-  </Router>,
+  <UserProvider value={user}>
+    <Router history={hist}>
+      <Switch>
+        <Route
+          path="/admin"
+          render={(props) => {
+            return <AdminLayout {...props} />;
+          }}
+        />
+        <Route
+          path="/auth"
+          render={(props) => {
+            return <AuthLayout {...props} />;
+          }}
+        />
+        <Redirect to="/admin/dashboard" />
+      </Switch>
+    </Router>
+  </UserProvider>,
   document.getElementById("root")
 );

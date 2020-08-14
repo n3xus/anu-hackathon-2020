@@ -15,8 +15,8 @@
 
 */
 /*eslint-disable*/
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, {Component} from "react";
+import { NavLink, Link } from "react-router-dom";
 // used for making the prop types of this component
 import PropTypes from "prop-types";
 // javascript plugin used to create scrollbars on windows
@@ -24,7 +24,7 @@ import PerfectScrollbar from "perfect-scrollbar";
 
 // reactstrap components
 import { Nav, Collapse, Button } from "reactstrap";
-
+import UserContext from "../UserContext";
 // core components
 import avatar from "assets/img/ryan.jpg";
 import doc from "assets/img/doc1.jpg";
@@ -32,7 +32,9 @@ import logo from "logo-white.svg";
 
 var ps;
 
-class Sidebar extends React.Component {
+class Sidebar extends Component {
+  static contextType = UserContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -160,22 +162,14 @@ class Sidebar extends React.Component {
       <>
         <div className="sidebar" data-color={this.props.backgroundColor}>
           <div className="logo">
-            <a
-              href="https://www.creative-tim.com?ref=nudr-sidebar"
-              className="simple-text logo-mini"
-              target="_blank"
-            >
+            <Link to="/" className="simple-text logo-mini">
               <div className="logo-img">
                 <img src={logo} alt="react-logo" />
               </div>
-            </a>
-            <a
-              href="https://www.creative-tim.com?ref=nudr-sidebar"
-              className="simple-text logo-normal"
-              target="_blank"
-            >
-              Creative Tim
-            </a>
+            </Link>
+            <Link to="/" className="simple-text logo-normal">
+              Doctor Now
+            </Link>
             <div className="navbar-minimize">
               <Button
                 outline
@@ -189,13 +183,12 @@ class Sidebar extends React.Component {
               </Button>
             </div>
           </div>
-
           <div className="sidebar-wrapper" ref={this.sidebar}>
-           <div className="user">
+            <div className="user">
               <div className="photo">
                 <img src={avatar} alt="Avatar" />
               </div>
-              <div cla ssName="info">
+              <div className="info">
                 <a
                   href="#pablo"
                   data-toggle="collapse"
@@ -205,7 +198,7 @@ class Sidebar extends React.Component {
                   }
                 >
                   <span>
-                    Ryan Gosling
+                    {this.context.name}
                     <b className="caret" />
                   </span>
                 </a>
@@ -234,8 +227,6 @@ class Sidebar extends React.Component {
                 </Collapse>
               </div>
             </div>
-
-            
 
             <Nav>{this.createLinks(this.props.routes)}</Nav>
           </div>
