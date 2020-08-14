@@ -23,9 +23,9 @@ const images = [
   require(`assets/img/doctors/3.jpg`),
   require(`assets/img/doctors/4.jpg`),
   require(`assets/img/doctors/5.jpg`),
-  require(`assets/img/doctors/6.jpg`),
-  require(`assets/img/doctors/7.jpg`),
-  require(`assets/img/doctors/8.jpg`),
+  // require(`assets/img/doctors/6.jpg`),
+  // require(`assets/img/doctors/7.jpg`),
+  // require(`assets/img/doctors/8.jpg`),
 ];
 
 const DoctorList = () => {
@@ -54,10 +54,9 @@ const DoctorList = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {doctors.map((doctor, ix) => (
-                      
+                    {doctors.map((doctor) => (
                       <Doctor
-                        avatar={images[doctor.id]}
+                        avatar={images[doctor.id - 1]}
                         name={doctor.name}
                         hospital={doctor.hospital}
                         specialization={doctor.specialization}

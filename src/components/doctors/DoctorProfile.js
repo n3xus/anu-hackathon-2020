@@ -14,24 +14,8 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState } from "react";
-
-// reactstrap components
-import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  Row,
-  Col,
-  Form,
-  Input,
-  FormGroup,
-} from "reactstrap";
-
-// core components
-import PanelHeader from "components/PanelHeader/PanelHeader.js";
-
+/*eslint-disable*/
+import React from "react";
 // react component used to create a calendar with events on it
 import { Calendar as BigCalendar, momentLocalizer } from "react-big-calendar";
 // dependency plugin for react-big-calendar
@@ -39,61 +23,62 @@ import moment from "moment";
 // react component used to create alerts
 import SweetAlert from "react-bootstrap-sweetalert";
 
-// core components
+// reactstrap components
+import { Card, CardBody, Row, Col, Button } from "reactstrap";
 
-import { events } from "../../variables/general.js";
+// core components
+import PanelHeader from "components/PanelHeader/PanelHeader.js";
+
+import { events } from "variables/general.js";
 
 const localizer = momentLocalizer(moment);
-const DoctorProfile = (props) => {
-  let doctorId = props.match.params.doctorId;
-  console.log(doctorId);
 
-  const [state, setState] = useState({
-    events: events,
-    alert: null,
-  });
-  
-  const selectedEvent = (event) => {
+class DoctorProfile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      events: events,
+      alert: null,
+    };
+    this.hideAlert = this.hideAlert.bind(this);
+  }
+  selectedEvent(event) {
     alert(event.title);
-  };
-
-  const addNewEventAlert = (slotInfo) => {
-    setState({
+  }
+  addNewEventAlert(slotInfo) {
+    this.setState({
       alert: (
         <SweetAlert
           input
           showCancel
           style={{ display: "block", marginTop: "-100px" }}
           title="Input something"
-          onConfirm={(e) => addNewEvent(e, slotInfo)}
-          onCancel={() => hideAlert()}
+          onConfirm={(e) => this.addNewEvent(e, slotInfo)}
+          onCancel={() => this.hideAlert()}
           confirmBtnBsStyle="info"
           cancelBtnBsStyle="danger"
         />
       ),
     });
-  };
-
-  const addNewEvent = (e, slotInfo) => {
-    var newEvents = state.events;
+  }
+  addNewEvent(e, slotInfo) {
+    var newEvents = this.state.events;
     newEvents.push({
       title: e,
       start: slotInfo.start,
       end: slotInfo.end,
     });
-    setState({
+    this.setState({
       alert: null,
       events: newEvents,
     });
-  };
-
-  const hideAlert = () => {
-    setState({
+  }
+  hideAlert() {
+    this.setState({
       alert: null,
     });
-  };
-  
-  const eventColors = (event, start, end, isSelected) => {
+  }
+  eventColors(event, start, end, isSelected) {
     var backgroundColor = "event-";
     event.color
       ? (backgroundColor = backgroundColor + event.color)
@@ -101,89 +86,86 @@ const DoctorProfile = (props) => {
     return {
       className: backgroundColor,
     };
-  };
-
-  return (
-    <>
-      <PanelHeader size="sm" />
-      <div className="content">
-        <Row>
-          <Col xs={12} md={8} className="ml-auto mr-auto">
-            <Card className="card-calendar">
-              <CardBody>
-                <BigCalendar
-                  selectable
-                  localizer={localizer}
-                  events={state.events}
-                  defaultView="month"
-                  scrollToTime={new Date(1970, 1, 1, 6)}
-                  defaultDate={new Date()}
-                  onSelectEvent={(event) => selectedEvent(event)}
-                  onSelectSlot={(slotInfo) => addNewEventAlert(slotInfo)}
-                  eventPropGetter={eventColors}
-                />
-              </CardBody>
-            </Card>
-          </Col>
-          <Col md="4">
-            <Card className="card-user">
-              <div className="image">
-                <img alt="..." src={require("assets/img/bg5.jpg")} />
-              </div>
-              <CardBody>
-                <div className="author">
-                  <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                    <img
-                      alt="..."
-                      className="avatar border-gray"
-                      src={require("assets/img/doctors/1.jpg")}
-                    />
-                    <h5 className="title">Janet Andrew</h5>
-                  </a>
-                  <p className="description">General Practitioner</p>
+  }
+  render() {
+    return (
+      <>
+        <PanelHeader
+          
+        />
+        <div className="content">
+          {this.state.alert}
+          <Row>
+            <Col xs={12} md={8} className="ml-auto mr-auto">
+              <Card className="card-calendar">
+                <CardBody>
+                  <BigCalendar
+                    selectable
+                    localizer={localizer}
+                    events={this.state.events}
+                    defaultView="month"
+                    scrollToTime={new Date(1970, 1, 1, 6)}
+                    defaultDate={new Date()}
+                    onSelectEvent={(event) => this.selectedEvent(event)}
+                    onSelectSlot={(slotInfo) => this.addNewEventAlert(slotInfo)}
+                    eventPropGetter={this.eventColors}
+                  />
+                </CardBody>
+              </Card>
+            </Col>
+            <Col md="4">
+              <Card className="card-user">
+                <div className="image">
+                  <img alt="..." src={require("assets/img/bg5.jpg")} />
                 </div>
-                <p className="description text-center">
-                  Midway Hospital <br />
-                  Sydney, Australia <br />
-                  15+ years of experience in health industry.
-                </p>
-              </CardBody>
-              <hr />
-              <div className="button-container">
-                <Button
-                  className="btn-icon btn-round"
-                  color="neutral"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                  size="lg"
-                >
-                  <i className="fab fa-facebook-square" />
-                </Button>
-                <Button
-                  className="btn-icon btn-round"
-                  color="neutral"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                  size="lg"
-                >
-                  <i className="fab fa-twitter" />
-                </Button>
-                <Button
-                  className="btn-icon btn-round"
-                  color="neutral"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                  size="lg"
-                >
-                  <i className="fab fa-google-plus-square" />
-                </Button>
-              </div>
-            </Card>
-          </Col>
-        </Row>
-      </div>
-    </>
-  );
-};
+                <CardBody>
+                  <div className="author">
+                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                      <img
+                        alt="..."
+                        className="avatar border-gray"
+                        src={require("assets/img/doctors/1.jpg")}
+                      />
+                      <h5 className="title">Janet Andrew</h5>
+                    </a>
+                    <p className="description">General Practitioner</p>
+                  </div>
+                  <p className="description text-center">
+                    Midway Hospital <br />
+                    Sydney, Australia <br />
+                    15+ years of experience in health industry.<br /><br />
+
+                    0431-854-345
+                  </p>
+                </CardBody>
+                <hr />
+                <div className="button-container">
+                  <Button
+                    className="btn-icon btn-round"
+                    color="neutral"
+                    href="#pablo"
+                    onClick={(e) => e.preventDefault()}
+                    size="lg"
+                  >
+                    <i className="fab fa-facebook-square" />
+                  </Button>
+                  <Button
+                    className="btn-icon btn-round"
+                    color="neutral"
+                    href="#pablo"
+                    onClick={(e) => e.preventDefault()}
+                    size="lg"
+                  >
+                    <i className="fab fa-twitter" />
+                  </Button>
+                </div>
+              </Card>
+            </Col>
+          </Row>
+        </div>
+      </>
+    );
+  }
+}
 
 export default DoctorProfile;

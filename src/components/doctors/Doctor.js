@@ -27,9 +27,9 @@ const Doctor = ({ name, hospital, specialization, available_date, avatar, id }) 
       <td className="text-center">{available_date}</td>
       <td className="text-center" />
       <td td className="text-center">
-        <Link to={`/admin/doctor/${id}`} color="info" className="btn-round">
+        <Button to={`/admin/doctor/${id}`} tag={Link} color="info" className="btn-round btn-primary">
           Book Appointment
-        </Link>
+        </Button>
       </td>
     </tr>
   );
