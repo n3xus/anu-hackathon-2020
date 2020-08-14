@@ -26,14 +26,27 @@ import "assets/css/demo.css";
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
 
-import {UserProvider} from 'components/User/UserContext'
+import { UserProvider } from "components/User";
 
 const hist = createBrowserHistory();
 
-const user = { name: 'Tania', loggedIn: true }
+// const user = {
+//   AboutMe: "",
+//   Address: "",
+//   City: "",
+//   Country: "",
+//   DoB: "",
+//   Email: "",
+//   FirstName: "Ryan",
+//   Gender: "",
+//   LastName: "",
+//   UserName: "",
+//   Zip: "",
+//   loggedIn: true,
+// };
 
 ReactDOM.render(
-  <UserProvider value={user}>
+  <UserProvider>
     <Router history={hist}>
       <Switch>
         <Route
