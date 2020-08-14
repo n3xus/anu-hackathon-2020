@@ -25,7 +25,7 @@ import NotificationAlert from "react-notification-alert";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+// import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
@@ -59,29 +59,29 @@ class Admin extends React.Component {
       this.mainPanel.current.scrollTop = 0;
     }
   }
-  minimizeSidebar = () => {
-    var message = "Sidebar mini ";
-    if (document.body.classList.contains("sidebar-mini")) {
-      this.setState({ sidebarMini: false });
-      message += "deactivated...";
-    } else {
-      this.setState({ sidebarMini: true });
-      message += "activated...";
-    }
-    document.body.classList.toggle("sidebar-mini");
-    var options = {};
-    options = {
-      place: "tr",
-      message: message,
-      type: "info",
-      icon: "now-ui-icons ui-1_bell-53",
-      autoDismiss: 7,
-    };
-    this.notificationAlert.current.notificationAlert(options);
-  };
-  handleColorClick = (color) => {
-    this.setState({ backgroundColor: color });
-  };
+  // minimizeSidebar = () => {
+  //   var message = "Sidebar mini ";
+  //   if (document.body.classList.contains("sidebar-mini")) {
+  //     this.setState({ sidebarMini: false });
+  //     message += "deactivated...";
+  //   } else {
+  //     this.setState({ sidebarMini: true });
+  //     message += "activated...";
+  //   }
+  //   document.body.classList.toggle("sidebar-mini");
+  //   var options = {};
+  //   options = {
+  //     place: "tr",
+  //     message: message,
+  //     type: "info",
+  //     icon: "now-ui-icons ui-1_bell-53",
+  //     autoDismiss: 7,
+  //   };
+  //   this.notificationAlert.current.notificationAlert(options);
+  // };
+  // handleColorClick = (color) => {
+  //   this.setState({ backgroundColor: color });
+  // };
   getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.collapse) {
@@ -146,12 +146,12 @@ class Admin extends React.Component {
             )
           }
         </div>
-        <FixedPlugin
+        {/* <FixedPlugin
           handleMiniClick={this.minimizeSidebar}
           sidebarMini={this.state.sidebarMini}
           bgColor={this.state.backgroundColor}
           handleColorClick={this.handleColorClick}
-        />
+        /> */}
       </div>
     );
   }
