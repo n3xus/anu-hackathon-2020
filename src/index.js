@@ -55,12 +55,6 @@ ReactDOM.render(
             return <AdminLayout {...props} />;
           }}
         />
-        <Route
-          path="/auth"
-          render={(props) => {
-            return <AuthLayout {...props} />;
-          }}
-        />
         <Redirect to="/admin/doctors" />
       </Switch>
     </Router>
