@@ -15,12 +15,22 @@ import {
 
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
-import data from 'api/doctors.json';
+import data from "api/doctors.json";
 
+const images = [
+  require(`assets/img/default-avatar.png`),
+  require(`assets/img/default-avatar.png`),
+  require(`assets/img/default-avatar.png`),
+  require(`assets/img/default-avatar.png`),
+  require(`assets/img/default-avatar.png`),
+  require(`assets/img/default-avatar.png`),
+  require(`assets/img/default-avatar.png`),
+  require(`assets/img/default-avatar.png`),
+];
 
 const DoctorList = () => {
   const [doctors, setDoctors] = useState(data);
-  
+
   return (
     <>
       <PanelHeader size="sm" />
@@ -44,9 +54,10 @@ const DoctorList = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {doctors.map((doctor) => (
+                    {doctors.map((doctor, ix) => (
+                      
                       <Doctor
-                        avatar={doctor.avatar}
+                        avatar={images[ix]}
                         name={doctor.name}
                         hospital={doctor.hospital}
                         specialization={doctor.specialization}
