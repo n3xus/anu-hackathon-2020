@@ -18,11 +18,10 @@ const Doctor = ({name, hospital, specialization, available_date }) => {
       <td className="text-center">{specialization}</td>
       <td className="text-center">{available_date}</td>
       <td className="text-center" />
-      <td td className="text-center">
-        {" "}
+      <td className="text-center">
         <Button color="info" className="btn-round">
           Book Appointment
-        </Button>{" "}
+        </Button>
       </td>
     </tr>
   );
