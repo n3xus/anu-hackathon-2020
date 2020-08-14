@@ -26,7 +26,7 @@ import "assets/css/demo.css";
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
 
-import {UserProvider} from 'components/UserContext'
+import {UserProvider} from 'components/User/UserContext'
 
 const hist = createBrowserHistory();
 
