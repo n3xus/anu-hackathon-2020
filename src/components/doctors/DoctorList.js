@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Doctor from "./Doctor";
+import { useFetch } from "../hooks";
 
 // reactstrap components
 import {
@@ -10,39 +11,16 @@ import {
   CardTitle,
   Row,
   Col,
-  Button,
 } from "reactstrap";
 
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
+import data from 'api/doctors.json';
+
 
 const DoctorList = () => {
-  const [doctors, setState] = useState([
-    {
-      avatar: "assets/img/doc1.png",
-      name: "A",
-      hospital: "XYZ",
-      specialization: "ENT",
-      available_date: "14/04/2020",
-      id: 1,
-    },
-    {
-      avatar: "assets/img/default-avatar.png",
-      name: "D",
-      hospital: "XYZ",
-      specialization: "ENT",
-      available_date: "14/3/2020",
-      id: 2,
-    },
-    {
-      avatar: "assets/img/default-avatar.png",
-      name: "E",
-      hospital: "XYZ",
-      specialization: "ENT",
-      available_date: "14/04/2020",
-      id: 3,
-    },
-  ]);
+  const [doctors, setDoctors] = useState(data);
+  
   return (
     <>
       <PanelHeader size="sm" />
@@ -73,6 +51,7 @@ const DoctorList = () => {
                         hospital={doctor.hospital}
                         specialization={doctor.specialization}
                         available_date={doctor.available_date}
+                        key={doctor.id}
                       />
                     ))}
                   </tbody>
