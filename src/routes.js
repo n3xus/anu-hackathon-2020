@@ -42,7 +42,8 @@ import PricingPage from "views/Pages/PricingPage.js";
 import LoginPage from "views/Pages/LoginPage.js";
 import RegisterPage from "views/Pages/RegisterPage.js";
 import LockScreenPage from "views/Pages/LockScreenPage.js";
-import {DoctorList} from './components/doctors';
+import {DoctorList} from './components/Doctors';
+import {ProfilePage} from './components/User';
 
 let routes = [
   {
@@ -51,6 +52,14 @@ let routes = [
     icon: "now-ui-icons design_app",
     component: DoctorList,
     layout: "/admin",
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    icon: "now-ui-icons design_app",
+    component: ProfilePage,
+    layout: "/admin",
+    hidden: true
   },
   {
     path: "/dashboard",
