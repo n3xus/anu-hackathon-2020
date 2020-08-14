@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 // reactstrap components
 import {
-  Table,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Row,
-  Col,
   Button,
 } from "reactstrap";
 
-const Doctor = ({avatar, name, hospital, specialization, available_date }) => {
+const Doctor = ({name, hospital, specialization, available_date }) => {
   return (
     <tr>
       <td>
