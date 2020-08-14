@@ -14,7 +14,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 // reactstrap components
 import {
@@ -31,11 +31,17 @@ import {
 
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
-import { Calendar as BigCalendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
-import SweetAlert from "react-bootstrap-sweetalert";
-import { events } from "../../variables/general.js";
 
+// react component used to create a calendar with events on it
+import { Calendar as BigCalendar, momentLocalizer } from "react-big-calendar";
+// dependency plugin for react-big-calendar
+import moment from "moment";
+// react component used to create alerts
+import SweetAlert from "react-bootstrap-sweetalert";
+
+// core components
+
+import { events } from "../../variables/general.js";
 
 const localizer = momentLocalizer(moment);
 const DoctorProfile = (props) => {
@@ -45,11 +51,11 @@ const DoctorProfile = (props) => {
   const [state, setState] = useState({
     events: events,
     alert: null,
-  })
-
+  });
+  
   const selectedEvent = (event) => {
     alert(event.title);
-  }
+  };
 
   const addNewEventAlert = (slotInfo) => {
     setState({
@@ -66,7 +72,7 @@ const DoctorProfile = (props) => {
         />
       ),
     });
-  }
+  };
 
   const addNewEvent = (e, slotInfo) => {
     var newEvents = state.events;
@@ -79,13 +85,14 @@ const DoctorProfile = (props) => {
       alert: null,
       events: newEvents,
     });
-  }
+  };
 
   const hideAlert = () => {
     setState({
       alert: null,
     });
-  }
+  };
+  
   const eventColors = (event, start, end, isSelected) => {
     var backgroundColor = "event-";
     event.color
@@ -94,7 +101,7 @@ const DoctorProfile = (props) => {
     return {
       className: backgroundColor,
     };
-  }
+  };
 
   return (
     <>
@@ -136,9 +143,9 @@ const DoctorProfile = (props) => {
                   <p className="description">General Practitioner</p>
                 </div>
                 <p className="description text-center">
-                  {'"'}Lamborghini Mercy <br />
-                  Your chick she so thirsty <br />
-                  I'm in that two seat Lambo{'"'}
+                  Midway Hospital <br />
+                  Sydney, Australia <br />
+                  15+ years of experience in health industry.
                 </p>
               </CardBody>
               <hr />

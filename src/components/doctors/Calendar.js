@@ -24,7 +24,7 @@ import moment from "moment";
 import SweetAlert from "react-bootstrap-sweetalert";
 
 // reactstrap components
-import { Card, CardBody, Row, Col, Button } from "reactstrap";
+import { Card, CardBody, Row, Col } from "reactstrap";
 
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
@@ -91,12 +91,29 @@ class Calendar extends React.Component {
     return (
       <>
         <PanelHeader
-          
+          content={
+            <div className="header text-center">
+              <h2 className="title">React Big Calendar</h2>
+              <p className="category">
+                A beautiful react component made by{" "}
+                <a href="https://github.com/intljusticemission" target="_blank">
+                  International Justice Mission
+                </a>
+                . Please checkout their{" "}
+                <a
+                  href="https://github.com/intljusticemission/react-big-calendar"
+                  target="_blank"
+                >
+                  full documentation.
+                </a>
+              </p>
+            </div>
+          }
         />
         <div className="content">
           {this.state.alert}
           <Row>
-            <Col xs={12} md={8} className="ml-auto mr-auto">
+            <Col xs={12} md={10} className="ml-auto mr-auto">
               <Card className="card-calendar">
                 <CardBody>
                   <BigCalendar
@@ -111,61 +128,6 @@ class Calendar extends React.Component {
                     eventPropGetter={this.eventColors}
                   />
                 </CardBody>
-              </Card>
-            </Col>
-            <Col md="4">
-              <Card className="card-user">
-                <div className="image">
-                  <img alt="..." src={require("assets/img/bg5.jpg")} />
-                </div>
-                <CardBody>
-                  <div className="author">
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                      <img
-                        alt="..."
-                        className="avatar border-gray"
-                        src={require("assets/img/doctors/1.jpg")}
-                      />
-                      <h5 className="title">Janet Andrew</h5>
-                    </a>
-                    <p className="description">General Practitioner</p>
-                  </div>
-                  <p className="description text-center">
-                    Midway Hospital <br />
-                    Sydney, Australia <br />
-                    15+ years of experience in health industry.
-                  </p>
-                </CardBody>
-                <hr />
-                <div className="button-container">
-                  <Button
-                    className="btn-icon btn-round"
-                    color="neutral"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                    size="lg"
-                  >
-                    <i className="fab fa-facebook-square" />
-                  </Button>
-                  <Button
-                    className="btn-icon btn-round"
-                    color="neutral"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                    size="lg"
-                  >
-                    <i className="fab fa-twitter" />
-                  </Button>
-                  <Button
-                    className="btn-icon btn-round"
-                    color="neutral"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                    size="lg"
-                  >
-                    <i className="fab fa-google-plus-square" />
-                  </Button>
-                </div>
               </Card>
             </Col>
           </Row>
