@@ -20,13 +20,13 @@ import { Route, Switch, Redirect } from "react-router-dom";
 // core components
 import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footer/Footer.js";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+// import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
 class Auth extends React.Component {
   state = {
-    filterColor: "yellow",
+    filterColor: "blue",
   };
   getRoutes = (routes) => {
     return routes.map((prop, key) => {
@@ -65,10 +65,10 @@ class Auth extends React.Component {
             <Footer fluid />
           </div>
         </div>
-        <FixedPlugin
+        {/* <FixedPlugin
           bgColor={this.state.filterColor}
           handleColorClick={this.handleColorClick}
-        />
+        /> */}
       </>
     );
   }
