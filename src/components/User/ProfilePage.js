@@ -34,6 +34,7 @@ import Select from "react-select";
 import PanelHeader from "components/PanelHeader";
 import { useForm, Controller } from "react-hook-form";
 import { UserContext } from "../User";
+import SweetAlert from "react-bootstrap-sweetalert";
 
 const ProfilePage = () => {
   const [state, setState] = useState({});

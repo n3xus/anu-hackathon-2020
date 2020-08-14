@@ -136,7 +136,7 @@ class AdminNavbar extends React.Component {
             navbar
             className="justify-content-end"
           >
-            <form>
+            {/* <form>
               <InputGroup className="no-border">
                 <Input placeholder="Search..." />
 
@@ -146,7 +146,7 @@ class AdminNavbar extends React.Component {
                   </InputGroupText>
                 </InputGroupAddon>
               </InputGroup>
-            </form>
+            </form> */}
             <Nav navbar>
               <NavItem>
                 <Link to="/admin/profile" className="nav-link">
